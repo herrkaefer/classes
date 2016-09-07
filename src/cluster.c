@@ -1,7 +1,7 @@
 /*  =========================================================================
     cluster - cluster
     Copyright (c) the Contributors as noted in the AUTHORS file.
-    This file is part of the N-Body Simulation Project.
+    This file is part of the XXX Project.
     This Source Code Form is subject to the terms of the Mozilla Public
     License, v. 2.0. If a copy of the MPL was not distributed with this
     file, You can obtain one at http://mozilla.org/MPL/2.0/.
@@ -10,31 +10,34 @@
 
 #include "classes.h"
 
+
 // ---------------------------------------------------------------------------
-// Default parameters
+// For each parameter essential to object creation and initialization:
+// 1. Define default parameter which can be overrided by user defined value in cfg file.
+// 2. Typecast it to inner representation prefixed by a underscore
+// 3. Perform static assertion to verify the value
 
 #ifndef CLUSTER_NUM_CHANNELS
 #define CLUSTER_NUM_CHANNELS 3
 #endif
-ct_assert ((size_t) CLUSTER_NUM_CHANNELS > 0);
+#define _CLUSTER_NUM_CHANNELS (size_t) CLUSTER_NUM_CHANNELS
+ct_assert (_CLUSTER_NUM_CHANNELS > 0);
 
 #ifndef CLUSTER_PARAM_C
 #define CLUSTER_PARAM_C 5
 #endif
-ct_assert ((int) CLUSTER_PARAM_C > 1);
+#define _CLUSTER_PARAM_C (int) CLUSTER_PARAM_C
+ct_assert (_CLUSTER_PARAM_C >= 0 && _CLUSTER_PARAM_C <= 9);
+
 
 // ---------------------------------------------------------------------------
 
 void cluster_init (cluster_t *self) {
     assert (self);
-
-    // Check that if public parameters are properly defined
-    assert ((size_t) CLUSTER_NUM_CHANNELS > 0);
-
-    self->num_channels = (size_t) CLUSTER_NUM_CHANNELS;
+    self->num_channels = _CLUSTER_NUM_CHANNELS;
     for (size_t ch = 0; ch < self->num_channels; ch++)
         buffer_init (&self->channels[ch]);
-    self->param_c = CLUSTER_PARAM_C;
+    self->param_c = _CLUSTER_PARAM_C;
 }
 
 
