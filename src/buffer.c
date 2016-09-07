@@ -11,36 +11,31 @@
 #include "classes.h"
 
 // ---------------------------------------------------------------------------
-// Paramters to create buffer object
+// Default parameters
 
-// Public parameters can be overrided by user definations
 #ifndef BUFFER_SIZE
 #define BUFFER_SIZE 8
 #endif
+ct_assert ((size_t) BUFFER_SIZE <= 200);
 
-// Private parameters
+#ifndef BUFFER_PARAM_A
 #define BUFFER_PARAM_A 2.0
+#endif
+ct_assert ((double) BUFFER_PARAM_A > 1.0);
+
+#ifndef BUFFER_PARAM_B
 #define BUFFER_PARAM_B 7.0
+#endif
+ct_assert ((double) BUFFER_PARAM_B < 10.0);
 
 // ---------------------------------------------------------------------------
-// struct _buffer_t {
-//     double data[BUFFER_SIZE];
-//     size_t size;
-//     double param_a;
-//     double param_b;
-// };
-
 
 void buffer_init (buffer_t *self) {
     assert (self);
-
-    // Check that if public parameters are properly defined
-    assert ((size_t) BUFFER_SIZE > 0);
-
     memset (self, 0, BUFFER_SIZE * sizeof (double));
     self->size = (size_t) BUFFER_SIZE;
-    self->param_a = BUFFER_PARAM_A;
-    self->param_b = BUFFER_PARAM_B;
+    self->param_a = (double) BUFFER_PARAM_A;
+    self->param_b = (double) BUFFER_PARAM_B;
 }
 
 
@@ -80,7 +75,7 @@ void buffer_test ()
 
     buffer_t buf;
     buffer_init (&buf);
-    assert (buffer_size (&buf) == 16);
+    printf ("buffer size: %zu\n", buffer_size (&buf));
 
     printf ("param_a: %.3f\n", buffer_param_a (&buf));
     buffer_set_param_a (&buf, 10.0);

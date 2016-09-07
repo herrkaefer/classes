@@ -15,28 +15,22 @@
 extern "C" {
 #endif
 
-// ---------------------------------------------------------------------------
-// Public parameters
-#define NUM_CHANNELS 4
-
-// ---------------------------------------------------------------------------
-
-// typedef struct _cluster_t cluster_t;
-
 typedef struct {
     size_t num_channels;
-    buffer_t channels[NUM_CHANNELS];
+    buffer_t channels[CLUSTER_NUM_CHANNELS];
     int param_c;
 } cluster_t;
-
 
 // Initialize cluster object
 void cluster_init (cluster_t *self);
 
+// Get number of channels
 size_t cluster_num_channels (cluster_t *self);
 
+// Get parameter c
 int cluster_param_c (cluster_t *self);
 
+// Set parameter c
 void cluster_set_param_c (cluster_t *self, int value);
 
 // Self test

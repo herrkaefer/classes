@@ -11,31 +11,27 @@
 #include "classes.h"
 
 // ---------------------------------------------------------------------------
-// Paramters to create cluster object
+// Default parameters
 
-// Public parameters can be overrided by user definations
-#ifndef NUM_CHANNELS
-#define NUM_CHANNELS 3
+#ifndef CLUSTER_NUM_CHANNELS
+#define CLUSTER_NUM_CHANNELS 3
 #endif
+ct_assert ((size_t) CLUSTER_NUM_CHANNELS > 0);
 
-// Private parameters
+#ifndef CLUSTER_PARAM_C
 #define CLUSTER_PARAM_C 5
+#endif
+ct_assert ((int) CLUSTER_PARAM_C > 1);
 
 // ---------------------------------------------------------------------------
-// struct _cluster_t {
-//     size_t num_channels;
-//     buffer_t channels[NUM_CHANNELS];
-//     int param_c;
-// };
-
 
 void cluster_init (cluster_t *self) {
     assert (self);
 
     // Check that if public parameters are properly defined
-    assert ((size_t) NUM_CHANNELS > 0);
+    assert ((size_t) CLUSTER_NUM_CHANNELS > 0);
 
-    self->num_channels = (size_t) NUM_CHANNELS;
+    self->num_channels = (size_t) CLUSTER_NUM_CHANNELS;
     for (size_t ch = 0; ch < self->num_channels; ch++)
         buffer_init (&self->channels[ch]);
     self->param_c = CLUSTER_PARAM_C;

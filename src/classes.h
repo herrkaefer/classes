@@ -11,11 +11,25 @@
 #ifndef __CLASSES_H_INCLUDED__
 #define __CLASSES_H_INCLUDED__
 
-// external API
-#include "../include/nbs.h"
+// External dependencies
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include <assert.h>
 
-// internal API
+// Compile time assertion
+#define ct_assert3(COND,MSG) typedef char static_assertion_failed_at_line_##MSG[(!!(COND))*2-1]
+#define ct_assert2(COND,MSG) ct_assert3(COND,MSG)
+#define ct_assert(COND) ct_assert2(COND,__LINE__)
+
+// External API
+// #include "../include/nbs.h"
+
+// Internal API
+#include "buffer.cfg"
 #include "buffer.h"
+#include "cluster.cfg"
 #include "cluster.h"
 
 #endif

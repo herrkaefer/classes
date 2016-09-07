@@ -15,15 +15,8 @@
 extern "C" {
 #endif
 
-// ---------------------------------------------------------------------------
-// Public parameters
-#define BUFFER_SIZE 16
-
-// ---------------------------------------------------------------------------
-// typedef _buffer_t buffer_t;
-
 typedef struct {
-    double data[BUFFER_SIZE];
+    double data[(size_t)BUFFER_SIZE];
     size_t size;
     double param_a;
     double param_b;
@@ -32,14 +25,19 @@ typedef struct {
 // Initialize buffer object
 void buffer_init (buffer_t *self);
 
+// Get buffer size
 size_t buffer_size (buffer_t *self);
 
+// Get parameter a
 double buffer_param_a (buffer_t *self);
 
+// Set parameter a
 void buffer_set_param_a (buffer_t *self, double value);
 
+// Get parameter b
 double buffer_param_b (buffer_t *self);
 
+// Set parameter b
 void buffer_set_param_b (buffer_t *self, double value);
 
 // Self test
