@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <stdbool.h>
+#include <math.h>
 #include <assert.h>
 
 // Compile time assertion
@@ -27,9 +28,9 @@
 // #include "../include/nbs.h"
 
 // Internal API
-#include "buffer.cfg"
+#include "buffer.ini"
 #include "buffer.h"
-#include "cluster.cfg"
+#include "cluster.ini"
 #include "cluster.h"
 
 #endif

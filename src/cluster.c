@@ -11,27 +11,6 @@
 #include "classes.h"
 
 
-// ---------------------------------------------------------------------------
-// For each parameter essential to object creation and initialization:
-// 1. Define default parameter which can be overrided by user defined value in cfg file.
-// 2. Typecast it to inner representation prefixed by a underscore
-// 3. Perform static assertion to verify the value
-
-#ifndef CLUSTER_NUM_CHANNELS
-#define CLUSTER_NUM_CHANNELS 3
-#endif
-#define _CLUSTER_NUM_CHANNELS (size_t) CLUSTER_NUM_CHANNELS
-ct_assert (_CLUSTER_NUM_CHANNELS > 0);
-
-#ifndef CLUSTER_PARAM_C
-#define CLUSTER_PARAM_C 5
-#endif
-#define _CLUSTER_PARAM_C (int) CLUSTER_PARAM_C
-ct_assert (_CLUSTER_PARAM_C >= 0 && _CLUSTER_PARAM_C <= 9);
-
-
-// ---------------------------------------------------------------------------
-
 void cluster_init (cluster_t *self) {
     assert (self);
     self->num_channels = _CLUSTER_NUM_CHANNELS;

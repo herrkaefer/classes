@@ -15,8 +15,34 @@
 extern "C" {
 #endif
 
+// ---------------------------------------------------------------------------
+// For each parameter essential to object creation and initialization:
+// 1. Define default parameter which can be overrided by user defined value in cfg file.
+// 2. Typecast it to inner representation prefixed by a underscore
+// 3. Perform static assertion to verify the value
+
+#ifndef BUFFER_SIZE
+#define BUFFER_SIZE 32
+#endif
+#define _BUFFER_SIZE (size_t) BUFFER_SIZE
+ct_assert (_BUFFER_SIZE <= 1024);
+
+#ifndef BUFFER_PARAM_A
+#define BUFFER_PARAM_A 2
+#endif
+#define _BUFFER_PARAM_A (int) BUFFER_PARAM_A
+ct_assert (_BUFFER_PARAM_A <= 3);
+
+#ifndef BUFFER_PARAM_B
+#define BUFFER_PARAM_B 7.0
+#endif
+#define _BUFFER_PARAM_B (double) BUFFER_PARAM_B
+ct_assert (_BUFFER_PARAM_B < 10.0);
+
+// ---------------------------------------------------------------------------
+
 typedef struct {
-    double data[(size_t)BUFFER_SIZE];
+    double data[_BUFFER_SIZE];
     size_t size;
     int param_a;
     double param_b;
@@ -37,8 +63,12 @@ void buffer_set_param_a (buffer_t *self, int value);
 // Get parameter b
 double buffer_param_b (buffer_t *self);
 
-// Set parameter b
-void buffer_set_param_b (buffer_t *self, double value);
+// Push data into buffer
+void buffer_push (buffer_t *self, double value);
+
+// Squared root of buffer data.
+// Return result in param output.
+void buffer_sqrt (buffer_t *self, double *output);
 
 // Self test
 void buffer_test (void);
