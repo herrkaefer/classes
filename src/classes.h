@@ -28,6 +28,8 @@
 // #include "../include/nbs.h"
 
 // Internal API
+// Note that the configuration file should be included before the corresponding
+// class header.
 #include "buffer.ini"
 #include "buffer.h"
 #include "cluster.ini"
