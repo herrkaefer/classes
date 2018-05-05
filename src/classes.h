@@ -11,47 +11,11 @@
 #ifndef __CLASSES_H_INCLUDED__
 #define __CLASSES_H_INCLUDED__
 
-// Standard ANSI include files.
-#include <ctype.h>
-#include <limits.h>
-#include <stdarg.h>
-#include <stdio.h>
-#include <stdlib.h>
-#include <stddef.h>
-#include <string.h>
-#include <time.h>
-#include <errno.h>
-#include <float.h>
-#include <math.h>
-#include <signal.h>
-#include <setjmp.h>
-#include <assert.h>
+// External APIs
+#include "../include/myproject.h"
 
-// Windows MSVS doesn't have stdbool
-#if (defined (_MSC_VER))
-#   if (!defined (__cplusplus) && (!defined (true)))
-#       define true 1
-#       define false 0
-        typedef char bool;
-#   endif
-#else
-#   include <stdbool.h>
-#endif
+// Private class structures
 
-// Compile time assertion
-#define ct_assert3(COND,MSG) typedef char static_assertion_failed_at_line_##MSG[(!!(COND))*2-1]
-#define ct_assert2(COND,MSG) ct_assert3(COND,MSG)
-#define ct_assert(COND) ct_assert2(COND,__LINE__)
-
-// External API
-// #include "../include/nbs.h"
-
-// Internal API
-// Note that the configuration file should be included before the corresponding
-// class header.
-#include "buffer.ini"
-#include "buffer.h"
-#include "cluster.ini"
-#include "cluster.h"
+// Internal API headers
 
 #endif
