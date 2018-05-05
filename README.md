@@ -20,4 +20,4 @@ To avoid use of heap memory, the following issues need to be re-considered:
 
 This project is my solution.
 
-For detailed explanation of this style, please read my post: ["CLASS Style Adapted for Embedded Systems"](https://herrkaefer.com/2016/09/10/CLASS-style-adapted-for-embedded-system/) along with the code.
+For detailed explanation of this style, please read my post ["CLASS Style Adapted for Embedded Systems"](https://herrkaefer.com/2016/09/10/CLASS-style-adapted-for-embedded-system/) along with the code.
