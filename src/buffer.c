@@ -58,8 +58,7 @@ void buffer_sqrt (buffer_t *self, double *output) {
 }
 
 
-void buffer_test ()
-{
+void buffer_test () {
     printf (" * buffer:\n");
 
     buffer_t buf;

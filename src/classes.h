@@ -11,13 +11,32 @@
 #ifndef __CLASSES_H_INCLUDED__
 #define __CLASSES_H_INCLUDED__
 
-// External dependencies
+// Standard ANSI include files.
+#include <ctype.h>
+#include <limits.h>
+#include <stdarg.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include <stddef.h>
 #include <string.h>
-#include <stdbool.h>
+#include <time.h>
+#include <errno.h>
+#include <float.h>
 #include <math.h>
+#include <signal.h>
+#include <setjmp.h>
 #include <assert.h>
+
+// Windows MSVS doesn't have stdbool
+#if (defined (_MSC_VER))
+#   if (!defined (__cplusplus) && (!defined (true)))
+#       define true 1
+#       define false 0
+        typedef char bool;
+#   endif
+#else
+#   include <stdbool.h>
+#endif
 
 // Compile time assertion
 #define ct_assert3(COND,MSG) typedef char static_assertion_failed_at_line_##MSG[(!!(COND))*2-1]

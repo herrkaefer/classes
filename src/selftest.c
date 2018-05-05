@@ -23,7 +23,7 @@ static test_item_t all_tests [] = {
 };
 
 
-//  Run all tests
+// Run all tests
 static void test_runall () {
     test_item_t *item;
     printf ("Running selftests...\n");

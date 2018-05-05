@@ -35,6 +35,7 @@ ct_assert (_CLUSTER_PARAM_C >= 0 && _CLUSTER_PARAM_C <= 9);
 
 // ---------------------------------------------------------------------------
 
+// Data structure of cluster object
 typedef struct {
     size_t num_channels;
     buffer_t channels[_CLUSTER_NUM_CHANNELS];

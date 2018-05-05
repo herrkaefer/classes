@@ -17,7 +17,8 @@ extern "C" {
 
 // ---------------------------------------------------------------------------
 // For each parameter essential to object creation and initialization:
-// 1. Define default parameter which can be overrided by user defined value in cfg file.
+// 1. Define default parameter which can be overrided by user defined value in
+//    corresponding ini file.
 // 2. Typecast it to inner representation prefixed by a underscore
 // 3. Perform static assertion to verify the value
 
@@ -41,6 +42,7 @@ ct_assert (_BUFFER_PARAM_B < 10.0);
 
 // ---------------------------------------------------------------------------
 
+// Data structure of buffer object
 typedef struct {
     double data[_BUFFER_SIZE];
     size_t size;

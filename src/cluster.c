@@ -38,8 +38,7 @@ void cluster_set_param_c (cluster_t *self, int value) {
 }
 
 
-void cluster_test ()
-{
+void cluster_test () {
     printf (" * cluster:\n");
 
     cluster_t cluster;
