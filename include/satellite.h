@@ -40,6 +40,7 @@ ct_assert (0 < _SATELLITE_NUM_ORBITS < 10);
 // Data structure of satellite object
 typedef struct {
     double mass;
+    size_t num_orbits;
     int orbits[_SATELLITE_NUM_ORBITS];
 } satellite_t;
 
@@ -51,6 +52,9 @@ double satellite_mass (satellite_t *self);
 
 // Set mass
 void satellite_set_mass (satellite_t *self, double mass);
+
+// Get orbit number
+size_t satellite_num_orbits (satellite_t *self);
 
 // Change track
 void satellite_change_orbit (satellite_t *self, int orbit);

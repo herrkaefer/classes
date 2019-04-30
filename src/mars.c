@@ -16,7 +16,8 @@ void mars_init (mars_t *self) {
     assert (self);
     self->mass = _MARS_MASS;
     self->num_satellites = _MARS_NUM_SATELLITES;
-    memset(self->satellites, 0, self->num_satellites * sizeof (satellite_t));
+    for (size_t idx = 0; idx < self->num_satellites; idx++)
+        satellite_init (&self->satellites[idx]);
 }
 
 

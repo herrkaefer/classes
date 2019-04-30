@@ -15,7 +15,9 @@
 void satellite_init (satellite_t *self) {
     assert (self);
     self->mass = _SATELLITE_MASS;
-    memset (self->orbits, 0, _SATELLITE_NUM_ORBITS * sizeof (int));
+    self->num_orbits = _SATELLITE_NUM_ORBITS;
+    for (size_t idx = 0; idx < self->num_orbits; idx++)
+        self->orbits[idx] = idx;
 }
 
 
@@ -28,6 +30,12 @@ void satellite_set_mass (satellite_t *self, double mass) {
 double satellite_mass (satellite_t *self) {
     assert (self);
     return self->mass;
+}
+
+
+size_t satellite_num_orbits (satellite_t *self) {
+    assert (self);
+    return self->num_orbits;
 }
 
 

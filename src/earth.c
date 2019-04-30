@@ -16,7 +16,8 @@ void earth_init (earth_t *self) {
     assert (self);
     self->size = _EARTH_SIZE;
     self->num_satellites = _EARTH_NUM_SATELLITES;
-    memset (self->satellites, 0, _EARTH_NUM_SATELLITES * sizeof (satellite_t));
+    for (size_t idx = 0; idx < self->num_satellites; idx++)
+        satellite_init (&self->satellites[idx]);
 }
 
 
