@@ -20,8 +20,6 @@ LIBTARGET = libplanet.a
 _TESTSRC = test_satellite.c test_earth.c test_mars.c test.c
 TESTSRC = $(patsubst %,$(TESTDIR)/%,$(_TESTSRC)) $(LIBSRC)
 TESTTARGET = $(TARGETDIR)/selftest
-EXESRC = $(SRCDIR)/main.c $(LIBSRC)
-EXETARGET = $(TARGETDIR)/nbs
 
 
 .PHONY: clib cdll test exe clean
@@ -38,9 +36,6 @@ cdll: $(OBJ)
 test:
 	$(CC) $(TESTSRC) -o $(TESTTARGET) $(CFLAGS) $(LDIR) $(LIBS)
 	$(TESTTARGET)
-
-exe:
-	$(CC) $(EXESRC) -o $(EXETARGET) $(CFLAGS) $(LDIR) $(LIBS)
 
 clean:
 	rm -rf $(TARGETDIR)/* *.dll *.a *so $(ODIR)/* py/*.c
