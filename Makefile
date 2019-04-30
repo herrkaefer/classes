@@ -22,7 +22,7 @@ TESTSRC = $(patsubst %,$(TESTDIR)/%,$(_TESTSRC)) $(LIBSRC)
 TESTTARGET = $(TARGETDIR)/selftest
 
 
-.PHONY: clib cdll test exe clean
+.PHONY: clib cdll test clean
 
 $(ODIR)/%.o: $(SRCDIR)/%.c
 	$(CC) -c $< -o $@ $(CFLAGS)
