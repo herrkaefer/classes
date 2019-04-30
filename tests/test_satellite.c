@@ -1,5 +1,5 @@
 /*  =========================================================================
-    classes - project private header
+    test_satellite.c - satellite test
 
     Copyright (c) the Contributors as noted in the AUTHORS file.
     This file is part of the XXX Project.
@@ -9,14 +9,13 @@
     =========================================================================
 */
 
-#ifndef __CLASSES_H_INCLUDED__
-#define __CLASSES_H_INCLUDED__
+#include "planet.h"
 
-// External APIs
-#include "../include/planet.h"
 
-// Private class structures
-
-// Internal API headers
-
-#endif
+void test_satellite () {
+    satellite_t satellite;
+    satellite_init (&satellite);
+    printf ("satellite mass: %f\n", satellite_mass (&satellite));
+    satellite_set_mass (&satellite, 500.0);
+    printf ("satellite mass: %f\n", satellite_mass (&satellite));
+}

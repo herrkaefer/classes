@@ -1,5 +1,6 @@
 /*  =========================================================================
     classes - project public header
+
     Copyright (c) the Contributors as noted in the AUTHORS file.
     This file is part of the XXX Project.
     This Source Code Form is subject to the terms of the Mozilla Public
@@ -44,14 +45,16 @@
 #define ct_assert(COND) ct_assert2(COND,__LINE__)
 
 // External API
-// #include "../include/nbs.h"
+// #include "../include/xxx.h"
 
 // Internal API
-// Note that the configuration file should be included before the corresponding
+// Note that configuration file should be included before its corresponding
 // class header.
-#include "buffer.ini"
-#include "buffer.h"
-#include "cluster.ini"
-#include "cluster.h"
+#include "satellite.ini"
+#include "satellite.h"
+#include "earth.ini"
+#include "earth.h"
+#include "mars.ini"
+#include "mars.h"
 
 #endif

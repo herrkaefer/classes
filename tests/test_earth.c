@@ -1,5 +1,5 @@
 /*  =========================================================================
-    classes - project private header
+    test_earth.c - earth test
 
     Copyright (c) the Contributors as noted in the AUTHORS file.
     This file is part of the XXX Project.
@@ -9,14 +9,15 @@
     =========================================================================
 */
 
-#ifndef __CLASSES_H_INCLUDED__
-#define __CLASSES_H_INCLUDED__
+#include "planet.h"
 
-// External APIs
-#include "../include/planet.h"
 
-// Private class structures
-
-// Internal API headers
-
-#endif
+void test_earth () {
+    earth_t earth;
+    earth_init (&earth);
+    printf ("earth size: %zu\n", earth_size (&earth));
+    size_t new_size = 256;
+    earth_set_size (&earth, new_size);
+    assert (earth_size(&earth) == new_size);
+    printf ("Satellite number: %zu\n", earth_num_satellites (&earth));
+}

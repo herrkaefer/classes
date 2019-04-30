@@ -1,5 +1,5 @@
 /*  =========================================================================
-    classes - project private header
+    test_mars.c - mars test
 
     Copyright (c) the Contributors as noted in the AUTHORS file.
     This file is part of the XXX Project.
@@ -9,14 +9,11 @@
     =========================================================================
 */
 
-#ifndef __CLASSES_H_INCLUDED__
-#define __CLASSES_H_INCLUDED__
+#include "planet.h"
 
-// External APIs
-#include "../include/planet.h"
 
-// Private class structures
-
-// Internal API headers
-
-#endif
+void test_mars () {
+    mars_t mars;
+    mars_init (&mars);
+    assert (mars_num_satellites (&mars) == 2);
+}

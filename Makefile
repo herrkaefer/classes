@@ -1,6 +1,7 @@
 IDIR = include
 ODIR = build
 SRCDIR = src
+TESTDIR = tests
 TARGETDIR = bin
 
 CC = gcc
@@ -11,12 +12,13 @@ CFLAGS = -I$(IDIR) -DDEBUG -g -Wall -O2
 LDIR =
 LIBS =
 
-_OBJ = buffer.o cluster.o
+_OBJ = satellite.o earth.o mars.o
 OBJ = $(patsubst %,$(ODIR)/%,$(_OBJ))
-_LIBSRC = buffer.c cluster.c
+_LIBSRC = satellite.c earth.c mars.c
 LIBSRC = $(patsubst %,$(SRCDIR)/%,$(_LIBSRC))
-LIBTARGET = libnbs.a
-TESTSRC = $(SRCDIR)/selftest.c $(LIBSRC)
+LIBTARGET = libplanet.a
+_TESTSRC = test_satellite.c test_earth.c test_mars.c test.c
+TESTSRC = $(patsubst %,$(TESTDIR)/%,$(_TESTSRC)) $(LIBSRC)
 TESTTARGET = $(TARGETDIR)/selftest
 EXESRC = $(SRCDIR)/main.c $(LIBSRC)
 EXETARGET = $(TARGETDIR)/nbs

@@ -1,5 +1,6 @@
 /*  =========================================================================
-    cluster - cluster
+    mars - mars header
+
     Copyright (c) the Contributors as noted in the AUTHORS file.
     This file is part of the XXX Project.
     This Source Code Form is subject to the terms of the Mozilla Public
@@ -8,8 +9,8 @@
     =========================================================================
 */
 
-#ifndef __CLUSTER_H_INCLUDED__
-#define __CLUSTER_H_INCLUDED__
+#ifndef __MARS_H_INCLUDED__
+#define __MARS_H_INCLUDED__
 
 #ifdef __cplusplus
 extern "C" {
@@ -17,45 +18,40 @@ extern "C" {
 
 // ---------------------------------------------------------------------------
 // For each parameter essential to object creation and initialization:
-// 1. Define default parameter which can be overrided by user defined value in cfg file.
+// 1. Define default parameter which can be overrided by user defined value in
+//    corresponding ini file.
 // 2. Typecast it to inner representation prefixed by a underscore
 // 3. Perform static assertion to verify the value
 
-#ifndef CLUSTER_NUM_CHANNELS
-#define CLUSTER_NUM_CHANNELS 3
+#ifndef MARS_NUM_SATELLITES
+#define MARS_NUM_SATELLITES 3
 #endif
-#define _CLUSTER_NUM_CHANNELS (size_t) CLUSTER_NUM_CHANNELS
-ct_assert (_CLUSTER_NUM_CHANNELS > 0);
+#define _MARS_NUM_SATELLITES (size_t) MARS_NUM_SATELLITES
+ct_assert (_MARS_NUM_SATELLITES > 0);
 
-#ifndef CLUSTER_PARAM_C
-#define CLUSTER_PARAM_C 5
+#ifndef MARS_MASS
+#define MARS_MASS 5
 #endif
-#define _CLUSTER_PARAM_C (int) CLUSTER_PARAM_C
-ct_assert (_CLUSTER_PARAM_C >= 0 && _CLUSTER_PARAM_C <= 9);
+#define _MARS_MASS (double) MARS_MASS
+ct_assert (_MARS_MASS >= 0 && _MARS_MASS <= 900);
 
 // ---------------------------------------------------------------------------
 
-// Data structure of cluster object
+// Data structure of mars object
 typedef struct {
-    size_t num_channels;
-    buffer_t channels[_CLUSTER_NUM_CHANNELS];
-    int param_c;
-} cluster_t;
+    double mass;
+    size_t num_satellites;
+    satellite_t satellites[_MARS_NUM_SATELLITES];
+} mars_t;
 
-// Initialize cluster object
-void cluster_init (cluster_t *self);
+// Initialize mars object
+void mars_init (mars_t *self);
 
-// Get number of channels
-size_t cluster_num_channels (cluster_t *self);
+// Get number of satellites
+size_t mars_num_satellites (mars_t *self);
 
 // Get parameter c
-int cluster_param_c (cluster_t *self);
-
-// Set parameter c
-void cluster_set_param_c (cluster_t *self, int value);
-
-// Self test
-void cluster_test (void);
+double mars_mass (mars_t *self);
 
 #ifdef __cplusplus
 }

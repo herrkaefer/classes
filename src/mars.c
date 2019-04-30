@@ -1,5 +1,5 @@
 /*  =========================================================================
-    classes - project private header
+    mars - mars implementation
 
     Copyright (c) the Contributors as noted in the AUTHORS file.
     This file is part of the XXX Project.
@@ -9,14 +9,24 @@
     =========================================================================
 */
 
-#ifndef __CLASSES_H_INCLUDED__
-#define __CLASSES_H_INCLUDED__
+#include "classes.h"
 
-// External APIs
-#include "../include/planet.h"
 
-// Private class structures
+void mars_init (mars_t *self) {
+    assert (self);
+    self->mass = _MARS_MASS;
+    self->num_satellites = _MARS_NUM_SATELLITES;
+    memset(self->satellites, 0, self->num_satellites * sizeof (satellite_t));
+}
 
-// Internal API headers
 
-#endif
+size_t mars_num_satellites (mars_t *self) {
+    assert (self);
+    return self->num_satellites;
+}
+
+
+double mars_mass (mars_t *self) {
+    assert (self);
+    return self->mass;
+}
