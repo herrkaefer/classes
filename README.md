@@ -2,7 +2,7 @@
     |    |    |__| [__  [__  |___ [__
     |___ |___ |  | ___] ___] |___ ___]
 
-[CLASS C language style](https://rfc.zeromq.org/spec:21/CLASS/) adapted for Embedded System.
+[CLASS C language style](https://rfc.zeromq.org/spec:21/CLASS/) adapted for **E**mbedded **S**ystem.
 
 So May I name it **CLASSES** style? Sounds not bad :-)
 

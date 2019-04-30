@@ -1,5 +1,5 @@
 /*  =========================================================================
-    classes - project private header
+    classes.h - project private header
 
     Copyright (c) the Contributors as noted in the AUTHORS file.
     This file is part of the XXX Project.

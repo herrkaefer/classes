@@ -1,5 +1,5 @@
 /*  =========================================================================
-    classes - project public header
+    planet.h - project public header
 
     Copyright (c) the Contributors as noted in the AUTHORS file.
     This file is part of the XXX Project.
@@ -9,8 +9,8 @@
     =========================================================================
 */
 
-#ifndef __MYPROJECT_H_INCLUDED__
-#define __MYPROJECT_H_INCLUDED__
+#ifndef __PLANET_H_INCLUDED__
+#define __PLANET_H_INCLUDED__
 
 // Standard ANSI include files.
 #include <ctype.h>

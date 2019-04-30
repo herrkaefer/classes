@@ -30,7 +30,7 @@ extern "C" {
 ct_assert (_SATELLITE_MASS <= 100000);
 
 #ifndef SATELLITE_NUM_ORBITS
-#define SATELLITE_NUM_ORBITS 100.0
+#define SATELLITE_NUM_ORBITS 1
 #endif
 #define _SATELLITE_NUM_ORBITS (size_t) SATELLITE_NUM_ORBITS
 ct_assert (0 < _SATELLITE_NUM_ORBITS < 10);
