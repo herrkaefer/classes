@@ -10,7 +10,7 @@ So May I name it **CLASSES** style? Sounds not bad :-)
 
 I write C using CLASS style with fun. When developing some algorithms in C targeted at embedded system where static memory is used instead of dynamic heap memory, I tried to adapt the CLASS style to the embedded version.
 
-To avoid use of heap memory, the following issues need to be re-considered:
+To avoid use of heap memory, the following issues need to be addressed:
 
 - How to create object with user-adjustable parameters?
 - How to initialize object with parameters?
@@ -20,4 +20,4 @@ To avoid use of heap memory, the following issues need to be re-considered:
 
 This project is my solution.
 
-For detailed explanation of this style, please read my post ["CLASS Style Adapted for Embedded Systems"](https://herrkaefer.com/2016/09/10/CLASS-style-adapted-for-embedded-system/) along with the code.
+For detailed explanation of this style, please read my post ["CLASS Style Adapted for Embedded Systems"](https://herrkaefer.com/2016/09/10/class-style-adapted-for-embedded-systems/) along with the code.
