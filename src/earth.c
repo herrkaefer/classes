@@ -9,15 +9,14 @@
     =========================================================================
 */
 
-#include "classes.h"
+#include "planet.h"
 
+#include "earth.ini"
 
 void earth_init (earth_t *self) {
     assert (self);
     self->size = _EARTH_SIZE;
-    self->num_satellites = _EARTH_NUM_SATELLITES;
-    for (size_t idx = 0; idx < self->num_satellites; idx++)
-        satellite_init (&self->satellites[idx]);
+    satellite_init (&self->satellite);
 }
 
 
@@ -33,7 +32,7 @@ void earth_set_size (earth_t *self, size_t size) {
 }
 
 
-size_t earth_num_satellites (earth_t *self) {
+size_t earth_satellite_num_orbits (earth_t *self) {
     assert (self);
-    return self->num_satellites;
+    return satellite_num_orbits (&self->satellite);
 }

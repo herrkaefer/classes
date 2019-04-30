@@ -1,4 +1,4 @@
-IDIR = include
+IDIR = src
 ODIR = build
 SRCDIR = src
 TESTDIR = tests

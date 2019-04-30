@@ -18,4 +18,6 @@ void test_satellite () {
     printf ("satellite mass: %f\n", satellite_mass (&satellite));
     satellite_set_mass (&satellite, 500.0);
     printf ("satellite mass: %f\n", satellite_mass (&satellite));
+    printf ("Satellite orbit number: %zu\n",
+            satellite_num_orbits (&satellite));
 }

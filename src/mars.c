@@ -9,25 +9,23 @@
     =========================================================================
 */
 
-#include "classes.h"
+#include "planet.h"
 
+#include "mars.ini"
 
 void mars_init (mars_t *self) {
     assert (self);
     self->mass = _MARS_MASS;
-    self->num_satellites = _MARS_NUM_SATELLITES;
-    for (size_t idx = 0; idx < self->num_satellites; idx++)
-        satellite_init (&self->satellites[idx]);
-}
-
-
-size_t mars_num_satellites (mars_t *self) {
-    assert (self);
-    return self->num_satellites;
+    satellite_init (&self->satellite);
 }
 
 
 double mars_mass (mars_t *self) {
     assert (self);
     return self->mass;
+}
+
+
+size_t mars_satellite_num_orbits (mars_t *self) {
+    return satellite_num_orbits (&self->satellite);
 }

@@ -1,5 +1,5 @@
 /*  =========================================================================
-    mars - mars header
+    earth - earth header
 
     Copyright (c) the Contributors as noted in the AUTHORS file.
     This file is part of the XXX Project.
@@ -9,8 +9,8 @@
     =========================================================================
 */
 
-#ifndef __MARS_H_INCLUDED__
-#define __MARS_H_INCLUDED__
+#ifndef __EARTH_H_INCLUDED__
+#define __EARTH_H_INCLUDED__
 
 #ifdef __cplusplus
 extern "C" {
@@ -23,35 +23,37 @@ extern "C" {
 // 2. Typecast it to inner representation prefixed by a underscore
 // 3. Perform static assertion to verify the value
 
-#ifndef MARS_NUM_SATELLITES
-#define MARS_NUM_SATELLITES 3
+#ifndef EARTH_SIZE
+#define EARTH_SIZE 32
 #endif
-#define _MARS_NUM_SATELLITES (size_t) MARS_NUM_SATELLITES
-ct_assert (_MARS_NUM_SATELLITES > 0);
+#define _EARTH_SIZE (size_t) EARTH_SIZE
+ct_assert (_EARTH_SIZE <= 1024);
 
-#ifndef MARS_MASS
-#define MARS_MASS 5
+#ifndef EARTH_NUM_SATELLITES
+#define EARTH_NUM_SATELLITES 2
 #endif
-#define _MARS_MASS (double) MARS_MASS
-ct_assert (_MARS_MASS >= 0 && _MARS_MASS <= 900);
+#define _EARTH_NUM_SATELLITES (size_t) EARTH_NUM_SATELLITES
+ct_assert (_EARTH_NUM_SATELLITES <= 3);
 
 // ---------------------------------------------------------------------------
 
-// Data structure of mars object
+// Data structure of earth object
 typedef struct {
-    double mass;
-    size_t num_satellites;
-    satellite_t satellites[_MARS_NUM_SATELLITES];
-} mars_t;
+    size_t size;
+    satellite_t satellite;
+} earth_t;
 
-// Initialize mars object
-void mars_init (mars_t *self);
+// Initialize earth object
+void earth_init (earth_t *self);
 
-// Get number of satellites
-size_t mars_num_satellites (mars_t *self);
+// Get earth size
+size_t earth_size (earth_t *self);
 
-// Get parameter c
-double mars_mass (mars_t *self);
+// Set earth size
+void earth_set_size (earth_t *self, size_t size);
+
+// Get satellite orbit number
+size_t earth_satellite_num_orbits (earth_t *self);
 
 #ifdef __cplusplus
 }

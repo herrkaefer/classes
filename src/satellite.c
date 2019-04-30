@@ -9,7 +9,7 @@
     =========================================================================
 */
 
-#include "classes.h"
+#include "planet.h"
 
 
 void satellite_init (satellite_t *self) {
